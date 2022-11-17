@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Machy-1.0.0 Windows Launch",
+            "program": "${workspaceFolder}/build/machy.exe",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

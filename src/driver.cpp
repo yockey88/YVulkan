@@ -1,6 +1,8 @@
 #include <vulkan/vulkan.h>
+#include <SDL.h>
+#undef main
 
-#include <iostream>
+#include "kernel.hpp"
 
 int main() {
 
@@ -19,6 +21,9 @@ int main() {
     if (res == VK_SUCCESS) {
         std::cout << "Successfully Created VkInstance" << std::endl;
     }
+
+    auto& kernel = machy::Kernel::Instance();
+    kernel.delKernel();
 
     return 0;
 }
