@@ -3,6 +3,7 @@
 #undef main
 
 #include "engine.hpp"
+#include "glm/glm.hpp"
 
 int main(int argc , char* argv[]) {
     machy::core::SDLWindow win;
@@ -10,7 +11,7 @@ int main(int argc , char* argv[]) {
     machy::util::parsers::CmndLineParser parser;
 
     parser.Read(argc , argv);
-    parser.PrintOptions();
+    parser.PrintOptions(); 
     
     if (parser.cmndOptionExists("-w"))
         props.winW = std::stoi(parser.getCmndOption("-w"));
@@ -26,6 +27,9 @@ int main(int argc , char* argv[]) {
         win.BeginRender();
         win.EndRender();
     }
-
+    
     return 0;
 }
+
+/*
+    }*/

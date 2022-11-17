@@ -26,7 +26,7 @@ namespace machy::util::parsers {
 
     void CmndLineParser::PrintOptions() {
         
-        for (int i = 0; i , cmnds.size(); i++)
+        for (int i = 0; i < cmnds.size(); i++)
             std::cout << cmnds[i] << std::endl;
 
         return;
