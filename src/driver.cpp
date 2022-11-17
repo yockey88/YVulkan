@@ -2,28 +2,30 @@
 #include <SDL.h>
 #undef main
 
-#include "kernel.hpp"
+#include "engine.hpp"
 
-int main() {
+int main(int argc , char* argv[]) {
+    machy::core::SDLWindow win;
+    machy::core::sdlProps props;
+    machy::util::parsers::CmndLineParser parser;
 
-    VkApplicationInfo appInfo = {};
-    appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
-    appInfo.pApplicationName = "Machy";
-    appInfo.pEngineName = "Machy Kernel";
-
-    VkInstanceCreateInfo instanceInfo = {};
-    instanceInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-    instanceInfo.pApplicationInfo = &appInfo;
-
-    VkInstance instance;
-
-    VkResult res = vkCreateInstance(&instanceInfo , 0 , &instance);
-    if (res == VK_SUCCESS) {
-        std::cout << "Successfully Created VkInstance" << std::endl;
+    parser.Read(argc , argv);
+    parser.PrintOptions();
+    
+    if (parser.cmndOptionExists("-w"))
+        props.winW = std::stoi(parser.getCmndOption("-w"));
+    
+    if (parser.cmndOptionExists("-h"))
+        props.winW = std::stoi(parser.getCmndOption("-h"));
+    
+    if (!win.Create())
+        return -1;
+    
+    while (win.isOpen()) {
+        win.FlushEvents();
+        win.BeginRender();
+        win.EndRender();
     }
-
-    auto& kernel = machy::Kernel::Instance();
-    kernel.delKernel();
 
     return 0;
 }

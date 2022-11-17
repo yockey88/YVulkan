@@ -2,6 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "type": "shell",
             "label": "Machy-1.0.0 Windows Build",
             "command": "${workspaceFolder}/build.bat",
             "group": {

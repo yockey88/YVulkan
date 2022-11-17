@@ -1,16 +1,16 @@
-#include "kernel.hpp"
+#include "engine.hpp"
 
 namespace machy {
 
-    Kernel* Kernel::instance = nullptr;
+    Engine* Engine::instance = nullptr;
 
-    Kernel::Kernel() {
+    Engine::Engine() {
         std::cout << "[[[CONSTRUCTING MACHY KERNEL]]]" << std::endl;
     }
 
-    Kernel& Kernel::Instance() {
+    Engine& Engine::Instance() {
         if (instance == nullptr)
-            instance = new Kernel;
+            instance = new Engine;
         return *instance;
     }
 

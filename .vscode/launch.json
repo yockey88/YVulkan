@@ -4,6 +4,12 @@
         {
             "name": "Machy-1.0.0 Windows Launch",
             "program": "${workspaceFolder}/build/machy.exe",
+            "args": [
+                "-w",
+                "1420",
+                "-h",
+                "1020"
+            ],
             "type": "cppvsdbg",
             "request": "launch",
             "cwd": "${workspaceFolder}"
